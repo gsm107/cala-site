@@ -6,51 +6,131 @@
     <title>Cala Studio | Silicon Valley</title>
     <style>
         :root {
-            --bg: #f8f9fa;
-            --text: #111;
-            --accent: #6366f1;
-            --muted: #888;
+            --bg: #f4f4f7;
+            --text-main: #1a1a1a;
+            --accent: #6366f1; /* 活力紫 */
+            --text-muted: #888;
         }
+
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            margin: 0; background: var(--bg); color: var(--text);
-            display: flex; justify-content: center; align-items: center; height: 100vh;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--text-main);
+            overflow: hidden;
         }
-        .content { width: 100%; max-width: 800px; padding: 40px; }
-        .header { 
-            font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; 
-            color: var(--muted); text-transform: uppercase; margin-bottom: 60px;
+
+        .container { 
+            text-align: left; 
+            padding: 20px; 
+            max-width: 800px;
         }
-        .manifesto { display: flex; flex-direction: column; gap: 5px; }
-        .row { display: flex; align-items: baseline; cursor: pointer; transition: 0.3s; }
-        .initial { 
-            font-size: clamp(4rem, 12vw, 8rem); font-weight: 900; 
-            line-height: 0.9; letter-spacing: -2px; 
+
+        /* 顶部小标题 */
+        .location {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
         }
-        .word { 
-            font-size: clamp(1rem, 3vw, 2rem); font-weight: 200; 
-            margin-left: 20px; letter-spacing: 0.3em; text-transform: uppercase;
-            color: var(--muted); transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .location::before {
+            content: "";
+            width: 20px;
+            height: 1px;
+            background: var(--text-muted);
+            margin-right: 10px;
         }
-        .row:hover .initial { color: var(--accent); transform: translateX(10px); }
-        .row:hover .word { color: var(--text); letter-spacing: 0.6em; margin-left: 35px; opacity: 1; }
-        .footer { margin-top: 60px; font-size: 0.85rem; color: var(--muted); opacity: 0.7; }
+
+        /* CALA 核心展示区 */
+        .manifesto {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item {
+            display: flex;
+            align-items: baseline;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .initial {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .full-text {
+            font-size: clamp(0.8rem, 2vw, 1.8rem);
+            font-weight: 200;
+            color: var(--text-muted);
+            margin-left: 15px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.6;
+        }
+
+        /* 交互动效 */
+        .item:hover .initial {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .item:hover .full-text {
+            color: var(--text-main);
+            letter-spacing: 0.5em;
+            opacity: 1;
+            margin-left: 30px;
+            font-weight: 500;
+        }
+
+        /* 底部状态 */
+        .status { 
+            margin-top: 60px; 
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
     </style>
 </head>
 <body>
-    <div class="content">
-        <div class="header">Cala Studio | Silicon Valley</div>
+    <div class="container">
+        <div class="location">Cala Studio | Silicon Valley</div>
+        
         <div class="manifesto">
-            <div class="row"><span class="initial">C</span><span class="word">reative</span></div>
-            <div class="row"><span class="initial">A</span><span class="word">lgorithmic</span></div>
-            <div class="row"><span class="initial">L</span><span class="word">ogic</span></div>
-            <div class="row"><span class="initial">A</span><span class="word">esthetic</span></div>
+            <div class="item">
+                <span class="initial">C</span>
+                <span class="full-text">reative</span>
+            </div>
+            <div class="item">
+                <span class="initial">A</span>
+                <span class="full-text">lgorithmic</span>
+            </div>
+            <div class="item">
+                <span class="initial">L</span>
+                <span class="full-text">ogic</span>
+            </div>
+            <div class="item">
+                <span class="initial">A</span>
+                <span class="full-text">esthetic</span>
+            </div>
         </div>
-        <p class="footer">// Site is under construction.</p>
-        <p class="footer">// 2026</p>
+
+        <p class="status">// Site is under construction.</p>
+        <p class="status">// 2026</p>
     </div>
 </body>
 </html>
-
-
-
