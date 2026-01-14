@@ -3,134 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cala Studio | Silicon Valley</title>
+    <title>Cala Studio | Sunming</title>
     <style>
         :root {
             --bg: #f4f4f7;
             --text-main: #1a1a1a;
-            --accent: #6366f1; /* 活力紫 */
+            --accent: #6366f1;
             --text-muted: #888;
+            --sidebar-width: 40%;
         }
 
+        * { box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
             margin: 0; 
             background-color: var(--bg); 
             color: var(--text-main);
-            overflow: hidden;
+            line-height: 1.6;
         }
 
-        .container { 
-            text-align: left; 
-            padding: 20px; 
-            max-width: 800px;
+        /* 布局容器 */
+        .layout {
+            display: flex;
+            min-height: 100vh;
         }
 
-        /* 顶部小标题 */
+        /* 左侧固定栏 */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10%;
+            border-right: 1px solid #e5e5e5;
+        }
+
+        /* 右侧滚动内容区 */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            padding: 10% 15% 10% 10%;
+        }
+
+        /* 继承你之前的 CALA 样式 */
         .location {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
+            margin-bottom: 30px;
         }
 
-        .location::before {
-            content: "";
-            width: 20px;
-            height: 1px;
-            background: var(--text-muted);
-            margin-right: 10px;
-        }
-
-        /* CALA 核心展示区 */
-        .manifesto {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .item {
+        .manifesto .item {
             display: flex;
             align-items: baseline;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            margin-bottom: 5px;
         }
 
         .initial {
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -2px;
+            line-height: 1;
         }
 
         .full-text {
-            font-size: clamp(0.8rem, 2vw, 1.8rem);
+            font-size: 1rem;
             font-weight: 200;
             color: var(--text-muted);
-            margin-left: 15px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0.6;
-        }
-
-        /* 交互动效 */
-        .item:hover .initial {
-            color: var(--accent);
-            transform: translateX(10px);
-        }
-
-        .item:hover .full-text {
-            color: var(--text-main);
-            letter-spacing: 0.5em;
-            opacity: 1;
-            margin-left: 30px;
-            font-weight: 500;
-        }
-
-        /* 底部状态 */
-        .status { 
-            margin-top: 60px; 
-            font-size: 0.85rem;
+            margin-left: 10px;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
-            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        /* 内容板块样式 */
+        section { margin-bottom: 80px; opacity: 0.9; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
+        .bio { font-size: 1.1rem; font-weight: 300; }
+        .experience-item { margin-bottom: 30px; }
+        .tag { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            background: #eef2ff; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        /* 响应式：手机端变回竖排 */
+        @media (max-width: 768px) {
+            .layout { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; border-right: none; padding: 60px 20px; }
+            .main-content { margin-left: 0; width: 100%; padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="location">Cala Studio | Silicon Valley</div>
-        
-        <div class="manifesto">
-            <div class="item">
-                <span class="initial">C</span>
-                <span class="full-text">reative</span>
-            </div>
-            <div class="item">
-                <span class="initial">A</span>
-                <span class="full-text">lgorithmic</span>
-            </div>
-            <div class="item">
-                <span class="initial">L</span>
-                <span class="full-text">ogic</span>
-            </div>
-            <div class="item">
-                <span class="initial">A</span>
-                <span class="full-text">esthetic</span>
-            </div>
-        </div>
 
-        <p class="status">// Site is under construction.</p>
-        <p class="status">// Jan 2026 DEV</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="location">Cala Studio | SV</div>
+            <div class="manifesto">
+                <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
+                <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
+                <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
+                <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="about">
+                <h2>// About</h2>
+                <p class="bio">
+                    Hi, I'm <strong>Sunming</strong>. <br>
+                    A Software Development Engineer based in Silicon Valley, 
+                    bridging the gap between technical logic and visual aesthetics.
+                </p>
+            </section>
+
+            <section id="experience">
+                <h2>// Experience</h2>
+                <div class="experience-item">
+                    <strong>Wings Studio</strong> · Founder / Project Lead
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Building education products with logic and passion.</p>
+                </div>
+                <div class="experience-item">
+                    <strong>Amazon</strong> · Software Development Engineer
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Scaled backend systems and refined architectural logic.</p>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2>// Education</h2>
+                <p>Santa Clara University · MS in Computer Science</p>
+            </section>
+
+            <section id="interests">
+                <h2>// Creative Works</h2>
+                <p>Beyond code, I dive into <strong>ZBrush</strong> for 1/7 scale figurine modeling.</p>
+                <div>
+                    <span class="tag">3D Modeling</span>
+                    <span class="tag">Java/Python</span>
+                    <span class="tag">System Design</span>
+                </div>
+            </section>
+
+            <footer>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 100px;">
+                    © 2026 Cala Studio. Built with Git & Github Pages.
+                </p>
+            </footer>
+        </main>
     </div>
+
 </body>
 </html>
