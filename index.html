@@ -11,105 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Cala" />
     <link rel="manifest" href="/my-favicon/site.webmanifest" />
-
-    <style>
-        :root {
-            --bg: #f4f4f7;
-            --text-main: #1a1a1a;
-            --accent: #6366f1;
-            --text-muted: #888;
-            --sidebar-width: 40%;
-        }
-
-        * { box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            margin: 0; 
-            background-color: var(--bg); 
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* 布局容器 */
-        .layout {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* 左侧固定栏 */
-        .sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10%;
-            border-right: 1px solid #e5e5e5;
-        }
-
-        /* 右侧滚动内容区 */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            width: calc(100% - var(--sidebar-width));
-            padding: 10% 15% 10% 10%;
-        }
-
-        /* 继承你之前的 CALA 样式 */
-        .location {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .manifesto .item {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-
-        .initial {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .full-text {
-            font-size: 1rem;
-            font-weight: 200;
-            color: var(--text-muted);
-            margin-left: 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* 内容板块样式 */
-        section { margin-bottom: 80px; opacity: 0.9; }
-        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
-        .bio { font-size: 1.1rem; font-weight: 300; }
-        .experience-item { margin-bottom: 30px; }
-        .tag { 
-            display: inline-block; 
-            padding: 4px 12px; 
-            background: #eef2ff; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        /* 响应式：手机端变回竖排 */
-        @media (max-width: 768px) {
-            .layout { flex-direction: column; }
-            .sidebar { position: relative; width: 100%; height: auto; border-right: none; padding: 60px 20px; }
-            .main-content { margin-left: 0; width: 100%; padding: 40px 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -125,42 +27,6 @@
         </aside>
 
         <main class="main-content">
-            <!-- <section id="about">
-                <h2>// About</h2>
-                <p class="bio">
-                    Hi, I'm <strong>Sunming</strong>. <br>
-                    A Software Development Engineer based in Silicon Valley, 
-                    bridging the gap between technical logic and visual aesthetics.
-                </p>
-            </section>
-
-            <section id="experience">
-                <h2>// Experience</h2>
-                <div class="experience-item">
-                    <strong>Wings Studio</strong> · Founder / Project Lead
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Building education products with logic and passion.</p>
-                </div>
-                <div class="experience-item">
-                    <strong>Amazon</strong> · Software Development Engineer
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Scaled backend systems and refined architectural logic.</p>
-                </div>
-            </section>
-
-            <section id="education">
-                <h2>// Education</h2>
-                <p>Santa Clara University · MS in Computer Science</p>
-            </section>
-
-            <section id="interests">
-                <h2>// Creative Works</h2>
-                <p>Beyond code, I dive into <strong>ZBrush</strong> for 1/7 scale figurine modeling.</p>
-                <div>
-                    <span class="tag">3D Modeling</span>
-                    <span class="tag">Java/Python</span>
-                    <span class="tag">System Design</span>
-                </div>
-            </section> -->
-
             <footer>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 100px;">
                     contact@calasv.com
