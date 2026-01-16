@@ -32,8 +32,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 10%;
-    padding-top: 5%;
+    padding: 5% 10% 10% 80px;
     border-right: 1px solid #e5e5e5;
 }
 
@@ -41,7 +40,6 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
 }
 
 .logo {
@@ -49,6 +47,7 @@ body {
     max-width: 200px;
     height: auto;
     object-fit: contain;
+    margin-bottom: 28px;
 }
 
 /* 右侧滚动内容区 */
@@ -62,19 +61,25 @@ body {
 .location {
     font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: 30px;
+    opacity: 0.7;
+    margin-bottom: 40px;
     white-space: nowrap;
+}
+
+.manifesto {
+    margin-top: -20px;
 }
 
 .manifesto .item {
     display: flex;
     align-items: baseline;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    line-height: 1.1;
 }
 
 .initial {
@@ -131,13 +136,19 @@ h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
         width: 100%; 
         height: auto; 
         border-right: none; 
-        padding: 60px 20px; 
-        padding-top: 40px;
+        padding: 40px 20px; 
         justify-content: flex-start;
         align-items: center;
     }
     .logo {
         max-width: 150px;
+        margin-bottom: 24px;
+    }
+    .location {
+        margin-bottom: 32px;
+    }
+    .manifesto {
+        margin-top: 0;
     }
     .main-content { margin-left: 0; width: 100%; padding: 40px 20px; }
 }
