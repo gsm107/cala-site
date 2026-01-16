@@ -3,7 +3,7 @@
     --text-main: #1a1a1a;
     --accent: #6366f1;
     --text-muted: #888;
-    --sidebar-width: 40%;
+    --sidebar-width: 28%;
 }
 
 * { box-sizing: border-box; }
@@ -52,8 +52,8 @@ body {
 
 /* 右侧滚动内容区 */
 .main-content {
-    margin-left: var(--sidebar-width);
-    width: calc(100% - var(--sidebar-width));
+    margin-left: 32%;
+    width: calc(100% - 32%);
     padding: 10% 15% 10% 10%;
 }
 
