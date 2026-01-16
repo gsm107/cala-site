@@ -17,12 +17,15 @@
 
     <div class="layout">
         <aside class="sidebar">
-            <div class="location">Cala Studio | Silicon Valley</div>
-            <div class="manifesto">
-                <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
-                <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
-                <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
-                <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
+            <div class="sidebar-content">
+                <img id="cala_logo" src="img/cala_logo.png" alt="Cala Studio Logo" class="logo" />
+                <div class="location">Cala Studio | Silicon Valley</div>
+                <div class="manifesto">
+                    <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
+                    <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
+                    <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
+                    <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
+                </div>
             </div>
         </aside>
 
@@ -34,9 +37,23 @@
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 100px;">
                     2026 © Cala Studio. All rights reserved.
                 </p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 100px;">
+                    Last updated: <span id="last-update"></span>
+                </p>
             </footer>
         </main>
     </div>
+
+    <script>
+        // 显示最后更新时间
+        const lastUpdateElement = document.getElementById('last-update');
+        const lastModified = new Date(document.lastModified);
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+        const dateStr = lastModified.toLocaleDateString('en-US', dateOptions);
+        const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
+        lastUpdateElement.textContent = dateStr + ' ' + timeStr;
+    </script>
 
 </body>
 </html>
