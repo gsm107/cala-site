@@ -19,12 +19,12 @@
         <aside class="sidebar">
             <div class="sidebar-content">
                 <img id="cala_logo" src="img/cala_logo.png" alt="Cala Studio Logo" class="logo" />
-                <div class="location">Cala Studio | Silicon Valley</div>
-                <div class="manifesto">
-                    <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
-                    <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
-                    <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
-                    <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
+            <div class="location">Cala Studio | Silicon Valley</div>
+            <div class="manifesto">
+                <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
+                <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
+                <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
+                <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
                 </div>
             </div>
         </aside>
@@ -53,15 +53,15 @@
     </div>
 
     <script>
-        // 显示最后更新时间
+        // 显示最后更新时间（硬编码时间戳，用于标记代码修改时间）
         const lastUpdateElement = document.getElementById('last-update');
-        const lastModified = new Date(document.lastModified);
-        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+        // 更新时间戳：2026-01-17 09:56:00 (北京时间 UTC+8)
+        const lastModified = new Date('2026-01-17T09:56:00+08:00');
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Shanghai' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' };
         const dateStr = lastModified.toLocaleDateString('en-US', dateOptions);
         const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
-        lastUpdateElement.textContent = dateStr + ' ' + timeStr;
-
+        lastUpdateElement.textContent = dateStr + ' ' + timeStr + ' (UTC+8)';
     </script>
     <script src="nav-preview.js"></script>
 
