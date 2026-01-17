@@ -69,7 +69,6 @@
             display: flex;
             align-items: baseline;
             cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
         .initial {
@@ -77,6 +76,7 @@
             font-weight: 900;
             line-height: 0.9;
             letter-spacing: -2px;
+            transition: color 0.3s ease;
         }
 
         .full-text {
@@ -86,22 +86,22 @@
             margin-left: 15px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                        opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0.6;
+            transform-origin: left center;
         }
 
         /* 交互动效 */
         .item:hover .initial {
             color: var(--accent);
-            transform: translateX(10px);
         }
 
         .item:hover .full-text {
             color: var(--text-main);
-            letter-spacing: 0.5em;
             opacity: 1;
-            margin-left: 30px;
-            font-weight: 500;
+            transform: scaleX(1.2);
         }
 
         /* 底部状态 */
@@ -137,8 +137,23 @@
             </div>
         </div>
 
-        <p class="status">// Site is under construction.</p>
-        <p class="status">// Jan 2026</p>
+        <p class="status">
+            2026 © Cala Studio. All rights reserved. | 
+            Last updated: <span id="last-update"></span>
+        </p>
     </div>
+
+    <script>
+        // 显示最后更新时间（硬编码时间戳，用于标记代码修改时间）
+        const lastUpdateElement = document.getElementById('last-update');
+        // 更新时间戳：2026-01-17 10:20 北京时间 = 2026-01-16 18:20 洛杉矶时间 (PST)
+        // 使用洛杉矶时间显示
+        const lastModified = new Date('2026-01-16T18:20:00-08:00');
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Los_Angeles' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Los_Angeles' };
+        const dateStr = lastModified.toLocaleDateString('en-US', dateOptions);
+        const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
+        lastUpdateElement.textContent = dateStr + ' ' + timeStr + ' (PST)';
+    </script>
 </body>
 </html>
