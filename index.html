@@ -31,11 +31,11 @@
 
         <main class="main-content">
             <nav class="section-nav">
-                <a href="#introduction" class="nav-item" data-section="introduction">Introduction</a>
-                <a href="#products" class="nav-item" data-section="products">Products</a>
-                <a href="#philosophy" class="nav-item" data-section="philosophy">Philosophy</a>
-                <a href="#services" class="nav-item" data-section="services">Services</a>
-                <a href="#contact" class="nav-item" data-section="contact">Contact</a>
+                <a href="pages/introduction.html" class="nav-item" data-section="introduction">Introduction</a>
+                <a href="pages/products.html" class="nav-item" data-section="products">Products</a>
+                <a href="pages/philosophy/creative.html" class="nav-item" data-section="philosophy">Philosophy</a>
+                <a href="pages/services.html" class="nav-item" data-section="services">Services</a>
+                <a href="pages/contact.html" class="nav-item" data-section="contact">Contact</a>
                 
                 <!-- Hover Preview Block -->
                 <div class="nav-preview" id="nav-preview">
@@ -62,120 +62,8 @@
         const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
         lastUpdateElement.textContent = dateStr + ' ' + timeStr;
 
-        // Apple-style hover preview
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            const navPreview = document.getElementById('nav-preview');
-            const previewContent = document.getElementById('preview-content');
-            
-            if (!navPreview || !previewContent) {
-                console.error('Preview elements not found');
-                return;
-            }
-            
-            // Section data
-            const sectionData = {
-                introduction: ['Background', 'Achievement'],
-                products: ['TapEat', 'TapMeet'],
-                philosophy: ['Creative', 'Algorithmic', 'Logic', 'Aesthetic'],
-                services: ['management', 'design'],
-                contact: ['email', 'address']
-            };
-
-            let currentSection = null;
-            let hideTimeout = null;
-
-            function showPreview(sectionId, navItem) {
-                if (currentSection === sectionId) return;
-                
-                currentSection = sectionId;
-                const items = sectionData[sectionId] || [];
-                
-                if (items.length === 0) return;
-                
-                // Position preview relative to the hovered nav item
-                if (navItem) {
-                    const navRect = navItem.getBoundingClientRect();
-                    const navParent = navItem.closest('.section-nav');
-                    const parentRect = navParent.getBoundingClientRect();
-                    
-                    // Calculate left position relative to nav parent
-                    const leftOffset = navRect.left - parentRect.left;
-                    navPreview.style.left = leftOffset + 'px';
-                }
-                
-                // Update content with fade effect
-                previewContent.style.opacity = '0';
-                setTimeout(() => {
-                    previewContent.innerHTML = items.map(item => `
-                        <div class="preview-list-item">
-                            <div class="preview-item-text">${item}</div>
-                        </div>
-                    `).join('');
-                    previewContent.style.opacity = '1';
-                }, 90);
-                
-                // Show preview block
-                navPreview.classList.add('active');
-                
-                // Clear any pending hide
-                if (hideTimeout) {
-                    clearTimeout(hideTimeout);
-                    hideTimeout = null;
-                }
-            }
-
-            function hidePreview() {
-                hideTimeout = setTimeout(() => {
-                    // Double check if mouse is still over nav or preview
-                    const isOverNav = Array.from(navItems).some(item => 
-                        item.matches(':hover')
-                    );
-                    const isOverPreview = navPreview.matches(':hover');
-                    
-                    if (!isOverNav && !isOverPreview) {
-                        navPreview.classList.remove('active');
-                        currentSection = null;
-                    }
-                }, 200);
-            }
-
-            // Add hover events to nav items
-            navItems.forEach(item => {
-                const sectionId = item.getAttribute('data-section');
-                
-                if (!sectionId) {
-                    console.warn('Nav item missing data-section:', item);
-                    return;
-                }
-                
-                item.addEventListener('mouseenter', (e) => {
-                    e.preventDefault();
-                    if (hideTimeout) {
-                        clearTimeout(hideTimeout);
-                        hideTimeout = null;
-                    }
-                    showPreview(sectionId, item);
-                });
-                
-                item.addEventListener('mouseleave', () => {
-                    hidePreview();
-                });
-            });
-
-            // Keep preview visible when hovering over it
-            navPreview.addEventListener('mouseenter', () => {
-                if (hideTimeout) {
-                    clearTimeout(hideTimeout);
-                    hideTimeout = null;
-                }
-            });
-
-            navPreview.addEventListener('mouseleave', () => {
-                hidePreview();
-            });
-        });
     </script>
+    <script src="nav-preview.js"></script>
 
 </body>
 </html>

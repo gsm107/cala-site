@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Cala Studio</title>
+
+    <link rel="icon" type="image/png" href="/my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Cala" />
+    <link rel="manifest" href="/my-favicon/site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <a href="../index.html" class="logo-link">
+                    <img id="cala_logo" src="../img/cala_logo.png" alt="Cala Studio Logo" class="logo" />
+                </a>
+                <div class="location">Cala Studio | Silicon Valley</div>
+                <div class="manifesto">
+                    <div class="item"><span class="initial">C</span><span class="full-text">reative</span></div>
+                    <div class="item"><span class="initial">A</span><span class="full-text">lgorithmic</span></div>
+                    <div class="item"><span class="initial">L</span><span class="full-text">ogic</span></div>
+                    <div class="item"><span class="initial">A</span><span class="full-text">esthetic</span></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <nav class="section-nav">
+                <a href="introduction.html" class="nav-item" data-section="introduction">Introduction</a>
+                <a href="products.html" class="nav-item" data-section="products">Products</a>
+                <a href="philosophy/creative.html" class="nav-item" data-section="philosophy">Philosophy</a>
+                <a href="services.html" class="nav-item" data-section="services">Services</a>
+                <a href="contact.html" class="nav-item" data-section="contact">Contact</a>
+                
+                <!-- Hover Preview Block -->
+                <div class="nav-preview" id="nav-preview">
+                    <div class="preview-content" id="preview-content"></div>
+                </div>
+            </nav>
+
+            <main id="content">
+                <div class="page-placeholder">
+                    <h1>Under Construction</h1>
+                    <p>This page is currently under construction.</p>
+                </div>
+            </main>
+
+            <footer class="site-footer">
+                <p class="footer-text">
+                    2026 © Cala Studio. All rights reserved. | 
+                    Last updated: <span id="last-update"></span>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../nav-preview.js"></script>
+    <script>
+        // 显示最后更新时�?
+        const lastUpdateElement = document.getElementById('last-update');
+        const lastModified = new Date(document.lastModified);
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+        const dateStr = lastModified.toLocaleDateString('en-US', dateOptions);
+        const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
+        lastUpdateElement.textContent = dateStr + ' ' + timeStr;
+    </script>
+
+</body>
+</html>

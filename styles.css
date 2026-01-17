@@ -48,6 +48,26 @@ body {
     height: auto;
     object-fit: contain;
     margin-bottom: 28px;
+    display: block;
+}
+
+/* Logo link for returning to home page */
+.logo-link {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 180ms ease-out, opacity 180ms ease-out;
+    /* 确保不影响 logo 的 margin-bottom */
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.logo-link:hover {
+    transform: scale(1.03);
+    opacity: 0.8;
 }
 
 /* 右侧滚动内容区 */
@@ -144,6 +164,9 @@ body {
     background: transparent;
     border-radius: 4px;
     position: relative;
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .preview-list-item::before {
@@ -178,6 +201,30 @@ body {
     text-transform: capitalize;
     letter-spacing: 0.01em;
     line-height: 1.8;
+}
+
+/* 子页面内容区域 */
+#content {
+    margin-top: 40px;
+}
+
+/* 子页面占位内容 */
+.page-placeholder {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.page-placeholder h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+.page-placeholder p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
 }
 
 /* 继承你之前的 CALA 样式 */
