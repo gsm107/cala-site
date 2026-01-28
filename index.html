@@ -55,13 +55,14 @@
     <script>
         // 显示最后更新时间（硬编码时间戳，用于标记代码修改时间）
         const lastUpdateElement = document.getElementById('last-update');
-        // 更新时间戳：2026-01-17 09:56:00 (北京时间 UTC+8)
-        const lastModified = new Date('2026-01-17T09:56:00+08:00');
-        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Shanghai' };
-        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' };
+        // 更新时间戳：2026-01-27 19:33 洛杉矶时间 (PST)
+        // 使用洛杉矶时间显示
+        const lastModified = new Date('2026-01-27T19:33:00-08:00');
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Los_Angeles' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Los_Angeles' };
         const dateStr = lastModified.toLocaleDateString('en-US', dateOptions);
         const timeStr = lastModified.toLocaleTimeString('en-US', timeOptions);
-        lastUpdateElement.textContent = dateStr + ' ' + timeStr + ' (UTC+8)';
+        lastUpdateElement.textContent = dateStr + ' ' + timeStr + ' (PST)';
     </script>
     <script src="nav-preview.js"></script>
 
